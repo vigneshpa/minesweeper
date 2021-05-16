@@ -67,7 +67,7 @@ export default defineComponent({
           this.gameMatrix[i].push(new Tile(i, j));
         }
       }
-      for (let i = 0; i < this.size * this.difficulty; i++) {
+      for (let i = 0; i < (this.size**2) * this.difficulty; i++) {
         this.gameMatrix[Math.floor(Math.random() * (this.size - 1))][
           Math.floor(Math.random() * (this.size - 1))
         ].hasBomb = true;
