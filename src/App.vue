@@ -17,7 +17,7 @@ export default defineComponent({
   data: () => ({
     size: 10 as number,
     gameMatrix: [] as Array<Array<Tile>>,
-    difficulty: 1.5,
+    difficulty: 1,
     showBombs: false,
   }),
   computed: {
@@ -32,6 +32,7 @@ export default defineComponent({
     },
     tilePress(tile: Tile, ignore?: Tile[]): void {
       ignore = ignore || [];
+      if(ignore.length==0 && tile.showN)return;
       if (tile.hasBomb) {
         this.showBombs = true;
         return alert("You Lose!");
@@ -67,7 +68,7 @@ export default defineComponent({
           this.gameMatrix[i].push(new Tile(i, j));
         }
       }
-      for (let i = 0; i < (this.size**2) * this.difficulty; i++) {
+      for (let i = 0; i < (this.size**2/5) * this.difficulty; i++) {
         this.gameMatrix[Math.floor(Math.random() * (this.size - 1))][
           Math.floor(Math.random() * (this.size - 1))
         ].hasBomb = true;
@@ -98,7 +99,7 @@ export default defineComponent({
   },
   watch: {
     size: {
-      handler: function(size: number) {
+      handler: function() {
         this.generate();
       },
       immediate: true,
