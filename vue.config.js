@@ -6,6 +6,7 @@ module.exports = {
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: '#ffffff',
     display: 'standalone',
-    outputDir: './docs',
   },
+  outputDir: './docs',
+  publicPath: './',
 };
