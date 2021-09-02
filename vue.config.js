@@ -5,6 +5,7 @@ module.exports = {
     msTileColor: '##5386d4',
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: '#ffffff',
-    display: "standalone"
-  }
-}
+    display: 'standalone',
+    outputDir: './docs',
+  },
+};
